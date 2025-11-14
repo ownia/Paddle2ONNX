@@ -27,6 +27,11 @@ int32_t SetValueMapper::GetMinOpsetVersion(bool verbose) {
     Error() << "Attribute none_axes is not supported." << std::endl;
     return -1;
   }
+  // TODO: when axes is empty
+  if (axes_.size() == 0) {
+    Error() << "Attribute axes is empty." << std::endl;
+    return -1;
+  }
   if (GetInput("Input")[0].dtype == P2ODataType::BOOL) {
     Error() << "Input X with data type of boolean is not supported."
             << std::endl;
